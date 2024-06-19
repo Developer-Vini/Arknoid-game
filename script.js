@@ -3,6 +3,7 @@ var ballX, ballY, dx, dy, bricks=[], batX=w/2, batY=h-50
 var c = document.getElementById("canvas")
 var ctx = c.getContext("2d")
 c.width = w; c.height = h
+//????????????????????
 
 
 function init() {

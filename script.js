@@ -3,7 +3,24 @@ var ballX, ballY, dx, dy, bricks=[], batX=w/2, batY=h-50
 var c = document.getElementById("canvas")
 var ctx = c.getContext("2d")
 c.width = w; c.height = h
-//????????????????????
+
+document.addEventListener("touchstart", function(e) {
+  e.preventDefault(); // Previne comportamentos padrão, como o scroll da página
+
+  var touchX = e.touches[0].clientX; // Posição do toque em relação à borda esquerda da janela
+
+  // Atualiza a posição da barra (batX)
+  batX = touchX - c.offsetLeft; // Subtrai a posição do canvas na página para obter a posição relativa dentro do canvas
+
+  // Garante que a barra não saia dos limites do canvas
+  if (batX < batW/2) {
+    batX = batW/2;
+  }
+  if (batX > w - batW/2) {
+    batX = w - batW/2;
+  }
+});
+
 
 
 function init() {
